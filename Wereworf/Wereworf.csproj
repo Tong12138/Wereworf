@@ -107,6 +107,9 @@
     <None Include="Wereworf_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\aaaa.jpg" />
+    <Content Include="Assets\kuku.png" />
+    <Content Include="Assets\pao.jpg" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />

@@ -8,6 +8,71 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <TextBlock>Werewolf</TextBlock>
+        <Grid >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0" Orientation="Vertical">
+                <Button   Height="60" >
+                    <Image x:Name="image1" Tag="1" Tapped="Image_Tapped"  Source="./Assets/aaaa.jpg"></Image>
+                </Button>
+                <TextBlock FontSize="28">玩家1</TextBlock>
+
+                <Button  Height="60" >
+                    <Image   Source="./Assets/aaaa.jpg"></Image>
+                </Button>
+                <TextBlock FontSize="28">玩家2</TextBlock>
+                
+                <Button  Height="60" >
+                    <Image   Source="./Assets/aaaa.jpg"></Image>
+                </Button>
+                <TextBlock FontSize="28">玩家3</TextBlock>
+                
+                <Button  Height="60" >
+                    <Image   Source="./Assets/aaaa.jpg"></Image>
+                </Button>
+                <TextBlock FontSize="28">玩家4</TextBlock>
+                
+                <Button  Height="60" >
+                    <Image   Source="./Assets/aaaa.jpg"></Image>
+                </Button>
+                <TextBlock FontSize="28">玩家5</TextBlock>
+            </StackPanel>
+            <StackPanel Grid.Column="3" Orientation="Vertical">
+                <Button  Height="60" >
+                    <Image    Source="./Assets/aaaa.jpg"></Image>
+                    <Button.Flyout>
+                        <Flyout>
+                            <Image x:Name="image11" Source="./Assets/pao.jpg"></Image>
+                        </Flyout>
+                    </Button.Flyout>
+                </Button>
+                <TextBlock FontSize="28">玩家1</TextBlock>
+
+                <Button  Height="60" >
+                    <Image x:Name="image" Tapped="Image_Tapped"  Source="./Assets/aaaa.jpg"></Image>
+                </Button>
+                <TextBlock FontSize="28">玩家2</TextBlock>
+
+                <Button  Height="60" >
+                    <Image   Source="./Assets/aaaa.jpg"></Image>
+                </Button>
+                <TextBlock FontSize="28">玩家3</TextBlock>
+
+                <Button  Height="60" >
+                    <Image   Source="./Assets/aaaa.jpg"></Image>
+                </Button>
+                <TextBlock FontSize="28">玩家4</TextBlock>
+            </StackPanel >
+            <Grid  x:Name="center" Grid.Column="1"  >
+                <TextBlock x:Name="clocktext" Foreground="Black" FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Center" ></TextBlock>
+                <MediaElement></MediaElement>
+                <Button FontSize="28" VerticalAlignment="Bottom" HorizontalAlignment="Center"  Click="Button_Click">开始</Button>
+            </Grid>
+            
+            
+        </Grid>
     </Grid>
 </Page>
