@@ -33,12 +33,60 @@ namespace Wereworf
             ImageBrush imageBrush = new ImageBrush();
             imageBrush.ImageSource = new BitmapImage(new Uri("ms-appx:///Assets/aaaa.jpg", UriKind.Absolute));
             //center.Background = imageBrush;
+        
         }
 
         string[] identity ;
 
+        //定义委托
+        public delegate void MyTagChanged(object sender, EventArgs e);
+        //与委托相关联的事件
+        public event MyTagChanged OnMyTagChanged;
+
+       
+
+        private int timetag = 0;
+
+        private void WhenMyTagChange()
+        {
+            if (OnMyTagChanged != null)
+
+            {
+
+                OnMyTagChanged(this, null);
+
+            }
+
+        }
+
+
+        public int TimeTag
+        {
+            get { return timetag; }
+            set
+            {
+                //如果赋的值与原值不同
+                if (value != timetag)
+                {
+                    timetag = value;
+
+                    //就触发该事件!
+                    WhenMyTagChange();
+                }
+
+                //然后赋值!
+                timetag = value;
+            }
+        }
+
+
+        //游戏开始
         private  void Button_Click(object sender, RoutedEventArgs e)
         {
+
+            OnMyTagChanged += new MyTagChanged(AfterMyValueChanged);
+
+            //随机分配身份
             string[] identity1 = { "ms-appx:///Assets/pao.jpg", "2", "3", "4", "5","","","","","" };
             identity = new string[10];
             //initialize
@@ -56,8 +104,19 @@ namespace Wereworf
                 }
             }
             identity[0] = identity1[0];
+
+            GameSession.Text = "游戏开始";
+            explaination.Text = "请玩家点击头像查验身份";
+            TimeCounter(3);
+            //while (timetag!=1) ;
+
+            
+        }
+
+        private void  TimeCounter(int TimeCount)
+        {
+            //开始倒计时
             int i = 0;
-            int TimeCount = 90;//倒计时秒数
             DispatcherTimer timer = new DispatcherTimer() { Interval = new TimeSpan(0, 0, 1) };
             timer.Tick += new EventHandler<object>(async (s, ee) =>
             {
@@ -66,11 +125,16 @@ namespace Wereworf
                     i += 1;
                     clocktext.Text = ((TimeCount - i) / 60).ToString("00") + ":" + ((TimeCount - i) % 60).ToString("00");
                     if (i == TimeCount)
+                    {
+                        TimeTag = timetag + 1;
                         timer.Stop();
+                        
+                    }
                 }));
             });
             timer.Start();
         }
+
 
         private void Image_Tapped(object sender, TappedRoutedEventArgs e)
         {
@@ -85,5 +149,56 @@ namespace Wereworf
                 image1.Tag = "1";
             }
         }
+
+
+
+        private void AfterMyValueChanged(object sender, EventArgs e)
+        {
+
+            switch(TimeTag)
+            {
+                case 1:
+                    GameSession.Text = "天黑请闭眼";
+                    explaination.Text = "狼人请杀人";
+                    TimeCounter(3);
+                    break;
+                case 2:
+                    GameSession.Text = "女巫请睁眼";
+                    explaination.Text = "女巫判断是否救人";
+                    TimeCounter(3);
+                    break;
+                case 3:
+                    GameSession.Text = "预言家请睁眼";
+                    explaination.Text = "预言家验人";
+                    TimeCounter(3);
+                    break;
+                case 4:
+                    GameSession.Text = "天亮了";
+                    explaination.Text = "玩家请发言";
+                    TimeCounter(3);
+                    break;
+                case 5:
+                    GameSession.Text = "下面开始放逐投票";
+                    explaination.Text = "投票票拉";
+                    TimeCounter(3);
+                    break;
+                default:
+                    TimeTag = 0;
+                    break;
+
+            }
+
+
+            //explaination.Text = TimeTag.ToString();
+
+        }
+
     }
+
+
+
+   
+
+
+    
 }

@@ -67,7 +67,14 @@
                 <TextBlock FontSize="28">玩家4</TextBlock>
             </StackPanel >
             <Grid  x:Name="center" Grid.Column="1"  >
-                <TextBlock x:Name="clocktext" Foreground="Black" FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Center" ></TextBlock>
+                <StackPanel>
+                    <TextBlock x:Name="GameSession" FontSize="50" HorizontalAlignment="Center"></TextBlock>
+                    <TextBlock x:Name="explaination" FontSize="50" HorizontalAlignment="Center"></TextBlock>
+                </StackPanel>
+
+
+                <TextBlock x:Name="clocktext" Foreground="Black" FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Center" >
+                </TextBlock>
                 <MediaElement></MediaElement>
                 <Button FontSize="28" VerticalAlignment="Bottom" HorizontalAlignment="Center"  Click="Button_Click">开始</Button>
             </Grid>
