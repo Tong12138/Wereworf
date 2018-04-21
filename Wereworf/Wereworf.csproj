@@ -108,6 +108,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\aaaa.jpg" />
+    <Content Include="Assets\dead.jpg" />
     <Content Include="Assets\kuku.png" />
     <Content Include="Assets\pao.jpg" />
     <Content Include="Properties\Default.rd.xml" />

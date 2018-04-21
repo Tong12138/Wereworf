@@ -15,8 +15,8 @@
                 <ColumnDefinition Width="Auto"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <StackPanel Grid.Column="0" Orientation="Vertical">
-                <Button   Height="60" >
-                    <Image x:Name="image1" Tag="1" Tapped="Image_Tapped"  Source="./Assets/aaaa.jpg"></Image>
+                <Button Name="player1" Tag="1" Click="player_Click"  Height="60" >
+                    <Image  x:Name="image1" Tag="1" Tapped="Image_Tapped"  Source="./Assets/aaaa.jpg"></Image>
                 </Button>
                 <TextBlock FontSize="28">玩家1</TextBlock>
 
@@ -76,7 +76,12 @@
                 <TextBlock x:Name="clocktext" Foreground="Black" FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Center" >
                 </TextBlock>
                 <MediaElement></MediaElement>
-                <Button FontSize="28" VerticalAlignment="Bottom" HorizontalAlignment="Center"  Click="Button_Click">开始</Button>
+                <StackPanel VerticalAlignment="Bottom" HorizontalAlignment="Center" Orientation="Horizontal">
+                    <Button Name="StartButton" FontSize="28"   Click="StartButton_Click">开始</Button>
+                    <Button Margin="20" Name="EndButton" FontSize="28"  Click="EndButton_Click" >结束</Button>
+                    
+                </StackPanel>
+                
             </Grid>
             
             

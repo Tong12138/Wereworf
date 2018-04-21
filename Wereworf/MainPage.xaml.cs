@@ -37,13 +37,16 @@ namespace Wereworf
         }
 
         string[] identity ;
+        List<string> worf;
+        List<string> god;
+        List<string> civilian;
 
         //定义委托
         public delegate void MyTagChanged(object sender, EventArgs e);
         //与委托相关联的事件
         public event MyTagChanged OnMyTagChanged;
 
-       
+        DispatcherTimer timer = new DispatcherTimer() { Interval = new TimeSpan(0, 0, 1) };
 
         private int timetag = 0;
 
@@ -52,13 +55,10 @@ namespace Wereworf
             if (OnMyTagChanged != null)
 
             {
-
                 OnMyTagChanged(this, null);
-
             }
 
         }
-
 
         public int TimeTag
         {
@@ -79,45 +79,12 @@ namespace Wereworf
             }
         }
 
-
-        //游戏开始
-        private  void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-            OnMyTagChanged += new MyTagChanged(AfterMyValueChanged);
-
-            //随机分配身份
-            string[] identity1 = { "ms-appx:///Assets/pao.jpg", "2", "3", "4", "5","","","","","" };
-            identity = new string[10];
-            //initialize
-            Hashtable hashtable = new Hashtable();
-            Random rm = new Random();
-            int RmNum = 10;
-            for (int j = 0; hashtable.Count < RmNum; )
-            {
-                int nValue = rm.Next(0,10);
-                if (!hashtable.ContainsValue(nValue))
-                {
-                    hashtable.Add(nValue, nValue);
-                    identity[nValue] = identity1[j];
-                    j++;
-                }
-            }
-            identity[0] = identity1[0];
-
-            GameSession.Text = "游戏开始";
-            explaination.Text = "请玩家点击头像查验身份";
-            TimeCounter(3);
-            //while (timetag!=1) ;
-
-            
-        }
-
         private void  TimeCounter(int TimeCount)
         {
             //开始倒计时
-            int i = 0;
-            DispatcherTimer timer = new DispatcherTimer() { Interval = new TimeSpan(0, 0, 1) };
+            int i = 0;     
+            
+            timer.Start();
             timer.Tick += new EventHandler<object>(async (s, ee) =>
             {
                 await Dispatcher.TryRunAsync(CoreDispatcherPriority.Normal, new DispatchedHandler(() =>
@@ -138,19 +105,21 @@ namespace Wereworf
 
         private void Image_Tapped(object sender, TappedRoutedEventArgs e)
         {
-
-            if (image1.Tag.ToString() == "1")
-            // if(image1.Source== new BitmapImage(new Uri("ms-appx:///Assets/aaaa.jpg", UriKind.Absolute)))
-            { image1.Source = new BitmapImage(new Uri(identity[0], UriKind.Absolute)); image1.Tag = "2"; }
-            else
+            var image = sender as Image;
+            if(TimeTag==0)
             {
-                image1.Source = new BitmapImage(new Uri("ms-appx:///Assets/aaaa.jpg", UriKind.Absolute));
-                  image1.IsTapEnabled = false;
-                image1.Tag = "1";
+                if (image.Tag.ToString() == "1")
+                // if(image1.Source== new BitmapImage(new Uri("ms-appx:///Assets/aaaa.jpg", UriKind.Absolute)))
+                { image.Source = new BitmapImage(new Uri(identity[0], UriKind.Absolute)); image.Tag = "2"; }
+                else
+                {
+                    image.Source = new BitmapImage(new Uri("ms-appx:///Assets/aaaa.jpg", UriKind.Absolute));
+                    image.IsTapEnabled = false;
+                    image.Tag = "1";
+                }
             }
+           
         }
-
-
 
         private void AfterMyValueChanged(object sender, EventArgs e)
         {
@@ -160,37 +129,107 @@ namespace Wereworf
                 case 1:
                     GameSession.Text = "天黑请闭眼";
                     explaination.Text = "狼人请杀人";
-                    TimeCounter(3);
+                    TimeCounter(10);
                     break;
                 case 2:
                     GameSession.Text = "女巫请睁眼";
                     explaination.Text = "女巫判断是否救人";
-                    TimeCounter(3);
+                    TimeCounter(20);
                     break;
                 case 3:
                     GameSession.Text = "预言家请睁眼";
                     explaination.Text = "预言家验人";
-                    TimeCounter(3);
+                    TimeCounter(30);
                     break;
                 case 4:
                     GameSession.Text = "天亮了";
                     explaination.Text = "玩家请发言";
-                    TimeCounter(3);
+                    TimeCounter(20);
                     break;
                 case 5:
                     GameSession.Text = "下面开始放逐投票";
-                    explaination.Text = "投票票拉";
-                    TimeCounter(3);
+                    explaination.Text = "点击被放逐玩家的头像";
+                    TimeCounter(15);
+        
                     break;
+
                 default:
+                    timer.Stop();
+                    JudgeGameOver();
                     TimeTag = 0;
                     break;
 
             }
-
-
             //explaination.Text = TimeTag.ToString();
 
+        }
+     
+        private void EndButton_Click(object sender, RoutedEventArgs e)
+        {
+            timer.Stop();
+            TimeTag++;
+        }
+
+        private void StartButton_Click(object sender, RoutedEventArgs e)
+        {
+            TimeTag = 0;
+            OnMyTagChanged += new MyTagChanged(AfterMyValueChanged);
+
+            //随机分配身份
+            string[] identity1 = { "ms-appx:///Assets/pao.jpg", "2", "3", "4", "5", "", "", "", "", "" };
+            identity = new string[10];
+            //initialize
+            Hashtable hashtable = new Hashtable();
+            Random rm = new Random();
+            int RmNum = 10;
+            for (int j = 0; hashtable.Count < RmNum;)
+            {
+                int nValue = rm.Next(0, 10);
+                if (!hashtable.ContainsValue(nValue))
+                {
+                    hashtable.Add(nValue, nValue);
+                    identity[nValue] = identity1[j];
+                    if (j < 3)
+                        worf.Add(nValue.ToString());
+                    else if (j < 6)
+                        god.Add(nValue.ToString());
+                    else
+                        civilian.Add(nValue.ToString());
+                    j++;
+                }
+            }
+            identity[0] = identity1[0];
+
+            GameSession.Text = "游戏开始";
+            explaination.Text = "请玩家点击头像查验身份";
+            TimeCounter(30);
+            //while (timetag!=1) 
+        }
+
+        private void player_Click(object sender, RoutedEventArgs e)
+        {
+            var deadbutton = sender as Button;
+            if(TimeTag==5)
+            {
+                deadbutton.IsEnabled = false;
+                (deadbutton.Content as Image).Source= new BitmapImage(new Uri("ms-appx:///Assets/dead.jpg", UriKind.Absolute));
+                string deadname = deadbutton.Tag.ToString();
+                if (worf.Contains(deadname))
+                    worf.Remove(deadname);
+                if (god.Contains(deadname))
+                    god.Remove(deadname);
+                if (civilian.Contains(deadname))
+                    civilian.Remove(deadname);
+
+            }
+        }
+
+        private void JudgeGameOver()
+        {
+            if (worf.Count == 0)
+                GameSession.Text = "好人胜利";
+            else if (god.Count == 0 || civilian.Count == 0)
+                GameSession.Text = "狼人胜利";
         }
 
     }
