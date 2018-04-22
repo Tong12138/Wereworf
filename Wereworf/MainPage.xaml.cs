@@ -176,7 +176,7 @@ namespace Wereworf
             OnMyTagChanged += new MyTagChanged(AfterMyValueChanged);
 
             //随机分配身份
-            string[] identity1 = { "ms-appx:///Assets/pao.jpg", "2", "3", "4", "5", "", "", "", "", "" };
+            string[] identity1 = { "ms-appx:///Assets/lr.jpg", "ms-appx:///Assets/lr.jpg", "ms-appx:///Assets/lr.jpg", "ms-appx:///Assets/nw.jpg", "ms-appx:///Assets/yyj.jpg", "ms-appx:///Assets/qiang.jpg", "ms-appx:///Assets/pc.jpg", "ms-appx:///Assets/pc.jpg", "ms-appx:///Assets/pc.jpg", };
             identity = new string[10];
             //initialize
             Hashtable hashtable = new Hashtable();

@@ -16,33 +16,33 @@
             </Grid.ColumnDefinitions>
             <StackPanel Grid.Column="0" Orientation="Vertical">
                 <Button Name="player1" Tag="1" Click="player_Click"  Height="60" >
-                    <Image  x:Name="image1" Tag="1" Tapped="Image_Tapped"  Source="./Assets/aaaa.jpg"></Image>
+                    <Image  x:Name="image1" Tag="1" Tapped="Image_Tapped"  Source="./Assets/bj.jpg"></Image>
                 </Button>
                 <TextBlock FontSize="28">玩家1</TextBlock>
 
                 <Button  Height="60" >
-                    <Image   Source="./Assets/aaaa.jpg"></Image>
+                    <Image   Source="./Assets/bj.jpg"></Image>
                 </Button>
                 <TextBlock FontSize="28">玩家2</TextBlock>
                 
                 <Button  Height="60" >
-                    <Image   Source="./Assets/aaaa.jpg"></Image>
+                    <Image   Source="./Assets/bj.jpg"></Image>
                 </Button>
                 <TextBlock FontSize="28">玩家3</TextBlock>
                 
                 <Button  Height="60" >
-                    <Image   Source="./Assets/aaaa.jpg"></Image>
+                    <Image   Source="./Assets/bj.jpg"></Image>
                 </Button>
                 <TextBlock FontSize="28">玩家4</TextBlock>
                 
                 <Button  Height="60" >
-                    <Image   Source="./Assets/aaaa.jpg"></Image>
+                    <Image   Source="./Assets/bj.jpg"></Image>
                 </Button>
                 <TextBlock FontSize="28">玩家5</TextBlock>
             </StackPanel>
             <StackPanel Grid.Column="3" Orientation="Vertical">
                 <Button  Height="60" >
-                    <Image    Source="./Assets/aaaa.jpg"></Image>
+                    <Image    Source="./Assets/bj.jpg"></Image>
                     <Button.Flyout>
                         <Flyout>
                             <Image x:Name="image11" Source="./Assets/pao.jpg"></Image>
@@ -52,17 +52,17 @@
                 <TextBlock FontSize="28">玩家1</TextBlock>
 
                 <Button  Height="60" >
-                    <Image x:Name="image" Tapped="Image_Tapped"  Source="./Assets/aaaa.jpg"></Image>
+                    <Image x:Name="image" Tapped="Image_Tapped"  Source="./Assets/bj.jpg"></Image>
                 </Button>
                 <TextBlock FontSize="28">玩家2</TextBlock>
 
                 <Button  Height="60" >
-                    <Image   Source="./Assets/aaaa.jpg"></Image>
+                    <Image   Source="./Assets/bj.jpg"></Image>
                 </Button>
                 <TextBlock FontSize="28">玩家3</TextBlock>
 
                 <Button  Height="60" >
-                    <Image   Source="./Assets/aaaa.jpg"></Image>
+                    <Image   Source="./Assets/bj.jpg"></Image>
                 </Button>
                 <TextBlock FontSize="28">玩家4</TextBlock>
             </StackPanel >
