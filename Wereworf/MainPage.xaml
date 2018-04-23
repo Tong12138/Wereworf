@@ -20,51 +20,46 @@
                 </Button>
                 <TextBlock FontSize="28">玩家1</TextBlock>
 
-                <Button  Height="60" >
-                    <Image   Source="./Assets/bj.jpg"></Image>
+                <Button Name="player2" Tag="2" Click="player_Click" Height="60" >
+                    <Image  x:Name="image2" Tag="1" Tapped="Image_Tapped" Source="./Assets/bj.jpg"></Image>
                 </Button>
                 <TextBlock FontSize="28">玩家2</TextBlock>
-                
-                <Button  Height="60" >
-                    <Image   Source="./Assets/bj.jpg"></Image>
+
+                <Button Name="player3" Tag="3" Click="player_Click" Height="60" >
+                    <Image x:Name="image3" Tag="1" Tapped="Image_Tapped"  Source="./Assets/bj.jpg"></Image>
                 </Button>
                 <TextBlock FontSize="28">玩家3</TextBlock>
-                
-                <Button  Height="60" >
-                    <Image   Source="./Assets/bj.jpg"></Image>
+
+                <Button Name="player4" Tag="4" Click="player_Click" Height="60" >
+                    <Image x:Name="image4" Tag="1" Tapped="Image_Tapped"  Source="./Assets/bj.jpg"></Image>
                 </Button>
                 <TextBlock FontSize="28">玩家4</TextBlock>
-                
-                <Button  Height="60" >
-                    <Image   Source="./Assets/bj.jpg"></Image>
+
+                <Button Name="player5" Tag="5" Click="player_Click" Height="60" >
+                    <Image x:Name="image5" Tag="1" Tapped="Image_Tapped"  Source="./Assets/bj.jpg"></Image>
                 </Button>
                 <TextBlock FontSize="28">玩家5</TextBlock>
             </StackPanel>
-            <StackPanel Grid.Column="3" Orientation="Vertical">
-                <Button  Height="60" >
-                    <Image    Source="./Assets/bj.jpg"></Image>
-                    <Button.Flyout>
-                        <Flyout>
-                            <Image x:Name="image11" Source="./Assets/pao.jpg"></Image>
-                        </Flyout>
-                    </Button.Flyout>
+            <StackPanel Grid.Column="3"  Orientation="Vertical">
+                <Button Name="player6" Tag="6" Click="player_Click" Height="60" >
+                    <Image x:Name="image6" Tag="1" Tapped="Image_Tapped"   Source="./Assets/bj.jpg"></Image>
                 </Button>
-                <TextBlock FontSize="28">玩家1</TextBlock>
+                <TextBlock FontSize="28">玩家6</TextBlock>
 
-                <Button  Height="60" >
-                    <Image x:Name="image" Tapped="Image_Tapped"  Source="./Assets/bj.jpg"></Image>
+                <Button Name="player7" Tag="7" Click="player_Click" Height="60" >
+                    <Image x:Name="image7" Tag="1" Tapped="Image_Tapped"  Source="./Assets/bj.jpg"></Image>
                 </Button>
-                <TextBlock FontSize="28">玩家2</TextBlock>
+                <TextBlock FontSize="28">玩家7</TextBlock>
 
-                <Button  Height="60" >
-                    <Image   Source="./Assets/bj.jpg"></Image>
+                <Button Name="player8" Tag="8" Click="player_Click" Height="60" >
+                    <Image x:Name="iamge8" Tag="1" Tapped="Image_Tapped"  Source="./Assets/bj.jpg"></Image>
                 </Button>
-                <TextBlock FontSize="28">玩家3</TextBlock>
+                <TextBlock FontSize="28">玩家8</TextBlock>
 
-                <Button  Height="60" >
-                    <Image   Source="./Assets/bj.jpg"></Image>
+                <Button Name="player9" Tag="9" Click="player_Click" Height="60" >
+                    <Image x:Name="iamge9" Tag="1" Tapped="Image_Tapped"   Source="./Assets/bj.jpg"></Image>
                 </Button>
-                <TextBlock FontSize="28">玩家4</TextBlock>
+                <TextBlock FontSize="28">玩家9</TextBlock>
             </StackPanel >
             <Grid  x:Name="center" Grid.Column="1"  >
                 <StackPanel>
