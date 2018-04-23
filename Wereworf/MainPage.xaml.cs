@@ -222,6 +222,20 @@ namespace Wereworf
                     civilian.Remove(deadname);
 
             }
+            if (TimeTag == 1)
+            {
+                deadbutton.IsEnabled = false;
+                (deadbutton.Content as Image).Source = new BitmapImage(new Uri("ms-appx:///Assets/alreadydead.jpg", UriKind.Absolute));
+                string deadname = deadbutton.Tag.ToString();
+                if (worf.Contains(deadname))
+                    worf.Remove(deadname);
+                if (god.Contains(deadname))
+                    god.Remove(deadname);
+                if (civilian.Contains(deadname))
+                    civilian.Remove(deadname);
+
+            }
+
         }
 
         private void JudgeGameOver()
