@@ -108,10 +108,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\aaaa.jpg" />
-    <Content Include="Assets\areadydead.jpg" />
+    <Content Include="Assets\bj.jpg" />
     <Content Include="Assets\dead.jpg" />
     <Content Include="Assets\kuku.png" />
+    <Content Include="Assets\lr.jpg" />
+    <Content Include="Assets\nw.jpg" />
     <Content Include="Assets\pao.jpg" />
+    <Content Include="Assets\pc.jpg" />
+    <Content Include="Assets\qiang.jpg" />
+    <Content Include="Assets\yyj.jpg" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
