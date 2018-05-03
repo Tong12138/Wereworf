@@ -29,6 +29,7 @@ namespace Wereworf
             this.InitializeComponent();
             ImageBrush imageBrush = new ImageBrush();
             imageBrush.ImageSource = new BitmapImage(new Uri("ms-appx:///Assets/aaaa.jpg", UriKind.Absolute));
+            timer.Tick += handler;
             //center.Background = imageBrush;
         }
         string[] identity;
@@ -45,6 +46,10 @@ namespace Wereworf
         DispatcherTimer timer = new DispatcherTimer() { Interval = new TimeSpan(0, 0, 1) };
 
         private int timetag = 0;
+
+        private int start = 0;
+
+        EventHandler<object> handler;
 
         private void WhenMyTagChange()
         {
@@ -71,17 +76,14 @@ namespace Wereworf
                 }
 
                 //然后赋值!
-                timetag = value;
+                //timetag = value;
             }
         }
 
-        private void TimeCounter(int TimeCount)
+        public void changehandler(int TimeCount)
         {
-            //开始倒计时
             int i = 0;
-
-            timer.Start();
-            timer.Tick += new EventHandler<object>(async (s, ee) =>
+            handler = new EventHandler<object>(async (s, ee) =>
             {
                 await Dispatcher.TryRunAsync(CoreDispatcherPriority.Normal, new DispatchedHandler(() =>
                 {
@@ -99,21 +101,38 @@ namespace Wereworf
         }
 
 
+
+
+        private int deadpeople = 0;  //一次狼刀
+
+        private int antidote;    //解药
+
+        private int poison;      //毒药
+
+        private int check = 0;    //预言家验人     
+
+        private int vote = 0;
+
+
         private void Image_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            var image = sender as Image;
-            int i = int.Parse(image.Name.Substring(5)) - 1;
-            if (TimeTag == 0)
+            if (start == 1)
             {
-                if (image.Tag.ToString() == "1")
-                // if(image1.Source== new BitmapImage(new Uri("ms-appx:///Assets/aaaa.jpg", UriKind.Absolute)))
-                { image.Source = new BitmapImage(new Uri(identity[i], UriKind.Absolute)); image.Tag = "2"; }
-                else
+                var image = sender as Image;
+                int i = int.Parse(image.Name.Substring(5)) - 1;
+                if (TimeTag == 0)
                 {
-                    image.Source = new BitmapImage(new Uri("ms-appx:///Assets/bj.jpg", UriKind.Absolute));
-                    image.IsTapEnabled = false;
-                    image.Tag = "1";
+                    if (image.Tag.ToString() == "1")
+                    // if(image1.Source== new BitmapImage(new Uri("ms-appx:///Assets/aaaa.jpg", UriKind.Absolute)))
+                    { image.Source = new BitmapImage(new Uri(identity[i], UriKind.Absolute)); image.Tag = "2"; }
+                    else
+                    {
+                        image.Source = new BitmapImage(new Uri("ms-appx:///Assets/bj.jpg", UriKind.Absolute));
+                        image.IsTapEnabled = false;
+                        image.Tag = "1";
+                    }
                 }
+
             }
 
         }
@@ -126,34 +145,48 @@ namespace Wereworf
                 case 1:
                     GameSession.Text = "天黑请闭眼";
                     explaination.Text = "狼人请杀人";
-                    TimeCounter(10);
+                    timer.Tick -= handler;
+                    changehandler(20);
+                    timer.Tick += handler;
                     break;
                 case 2:
                     GameSession.Text = "女巫请睁眼";
                     explaination.Text = "女巫判断是否救人";
-                    TimeCounter(20);
+                    timer.Tick -= handler;
+                    changehandler(30);
+                    timer.Tick += handler;
                     break;
+
                 case 3:
                     GameSession.Text = "预言家请睁眼";
                     explaination.Text = "预言家验人";
-                    TimeCounter(30);
+                    timer.Tick -= handler;
+                    changehandler(15);
+                    timer.Tick += handler;
                     break;
                 case 4:
                     GameSession.Text = "天亮了";
                     explaination.Text = "玩家请发言";
-                    TimeCounter(20);
+                    timer.Tick -= handler;
+                    changehandler(22);
+                    timer.Tick += handler;
                     break;
                 case 5:
                     GameSession.Text = "下面开始放逐投票";
                     explaination.Text = "点击被放逐玩家的头像";
-                    TimeCounter(15);
-
+                    timer.Tick -= handler;
+                    changehandler(10);
+                    timer.Tick += handler;
                     break;
 
                 default:
-                    timer.Stop();
-                    JudgeGameOver();
-                    TimeTag = 0;
+
+
+                    deadpeople = 0;
+                    check = 0;
+                    vote = 0;
+                    TimeTag = 1;
+
                     break;
 
             }
@@ -164,11 +197,16 @@ namespace Wereworf
         private void EndButton_Click(object sender, RoutedEventArgs e)
         {
             timer.Stop();
+
             TimeTag++;
         }
 
         private void StartButton_Click(object sender, RoutedEventArgs e)
         {
+            //变量初始化
+            antidote = 1;
+            poison = 1;
+            start = 1;
             TimeTag = 0;
             OnMyTagChanged += new MyTagChanged(AfterMyValueChanged);
 
@@ -199,7 +237,9 @@ namespace Wereworf
 
             GameSession.Text = "游戏开始";
             explaination.Text = "请玩家点击头像查验身份";
-            TimeCounter(30);
+            timer.Tick -= handler;
+            changehandler(30);
+            timer.Tick += handler;
             //while (timetag!=1) 
         }
 
@@ -208,69 +248,128 @@ namespace Wereworf
             var deadbutton = sender as Button;
             if (TimeTag == 5)
             {
-                deadbutton.IsEnabled = false;
-                (deadbutton.Content as Image).Source = new BitmapImage(new Uri("ms-appx:///Assets/areadydead.jpg", UriKind.Absolute));
-                string deadname = deadbutton.Tag.ToString();
-                if (worf.Contains(deadname))
-                    worf.Remove(deadname);
-                if (god.Contains(deadname))
-                    god.Remove(deadname);
-                if (civilian.Contains(deadname))
-                    civilian.Remove(deadname);
+                if (vote == 0)
+                {
+                    deadbutton.IsEnabled = false;
+                    (deadbutton.Content as Image).Source = new BitmapImage(new Uri("ms-appx:///Assets/areadydead.jpg", UriKind.Absolute));
+                    string deadname = deadbutton.Tag.ToString();
+                    if (worf.Contains(deadname))
+                        worf.Remove(deadname);
+                    if (god.Contains(deadname))
+                        god.Remove(deadname);
+                    if (civilian.Contains(deadname))
+                        civilian.Remove(deadname);
+                    if (JudgeGameOver())
+                        //  TimeTag = 0;
+                        timer.Stop();
+                }
+                vote++;
 
             }
-
+            //杀人
             if (TimeTag == 1)
             {
-                (deadbutton.Content as Image).Source = new BitmapImage(new Uri("ms-appx:///Assets/dead.jpg", UriKind.Absolute));
-                // string deadname = (int.Parse(deadbutton.Tag.ToString()) - 1).ToString();
-                dead.Add(deadbutton);
+                if (deadpeople == 0)
+                {
+                    (deadbutton.Content as Image).Source = new BitmapImage(new Uri("ms-appx:///Assets/dead.jpg", UriKind.Absolute));
+                    // string deadname = (int.Parse(deadbutton.Tag.ToString()) - 1).ToString();
+                    dead.Add(deadbutton);
+                    deadpeople++;
+                }
 
             }
             //救人
             if (TimeTag == 2)
             {
+                Button button;
+
                 if (dead.Count != 0)
                 {
-                    var button = (dead.ElementAt(0) as Button);
-                    (button.Content as Image).Source = new BitmapImage(new Uri("ms-appx:///Assets/bj.jpg", UriKind.Absolute));
-
+                    button = (dead.ElementAt(0) as Button);
                 }
-                string deadname = (int.Parse(deadbutton.Tag.ToString()) - 1).ToString();
-                if (worf.Contains(deadname))
-                    worf.Remove(deadname);
-                if (god.Contains(deadname))
-                    god.Remove(deadname);
-                if (civilian.Contains(deadname))
-                    civilian.Remove(deadname);
+                else
+                    button = null;
+
+                //救人成功
+                if (button == deadbutton && (antidote == 1))
+                {
+                    (button.Content as Image).Source = new BitmapImage(new Uri("ms-appx:///Assets/bj.jpg", UriKind.Absolute));
+                    antidote--;
+                    dead.RemoveAt(0);
+                }
+
+                //杀人成功
+                else if (poison == 1)
+                {
+                    dead.Add(deadbutton);
+                    poison--;
+                }
+
+                int counttemp = dead.Count;
+                for (int i = 0; i < counttemp; i++)
+                {
+                    ((dead.ElementAt(0) as Button).Content as Image).Source = new BitmapImage(new Uri("ms-appx:///Assets/areadydead.jpg", UriKind.Absolute));
+                    (dead.ElementAt(0) as Button).IsEnabled = false;
+
+                    string deadname = (int.Parse((dead.ElementAt(0) as Button).Tag.ToString()) - 1).ToString();
+                    if (worf.Contains(deadname))
+                        worf.Remove(deadname);
+                    if (god.Contains(deadname))
+                        god.Remove(deadname);
+                    if (civilian.Contains(deadname))
+                        civilian.Remove(deadname);
+                    dead.RemoveAt(0);
+                }
+                if (JudgeGameOver())
+                    //  TimeTag = 0;
+                    timer.Stop();
+
             }
             if (TimeTag == 3)
             {
                 var image = (sender as Button).Content as Image;
-                int i = int.Parse(image.Name.Substring(5)) - 1;
-
-                if (image.Tag.ToString() == "1")
-                // if(image1.Source== new BitmapImage(new Uri("ms-appx:///Assets/aaaa.jpg", UriKind.Absolute)))
-                { image.Source = new BitmapImage(new Uri(identity[i], UriKind.Absolute)); image.Tag = "2"; }
-                else
+                if (check == 0)
                 {
-                    image.Source = new BitmapImage(new Uri("ms-appx:///Assets/bj.jpg", UriKind.Absolute));
-                    image.IsTapEnabled = false;
-                    image.Tag = "1";
+
+                    int i = int.Parse(image.Name.Substring(5)) - 1;
+
+                    if (image.Tag.ToString() == "1")
+                    // if(image1.Source== new BitmapImage(new Uri("ms-appx:///Assets/aaaa.jpg", UriKind.Absolute)))
+                    { image.Source = new BitmapImage(new Uri(identity[i], UriKind.Absolute)); image.Tag = "2"; }
+                    //else
+                    //{
+                    //    image.Source = new BitmapImage(new Uri("ms-appx:///Assets/bj.jpg", UriKind.Absolute));
+                    //    image.Tag = "1";
+                    //}
+                    check++;
                 }
 
+                if (check == 2 && image.Tag.ToString() == "2")
+                {
+
+                    image.Source = new BitmapImage(new Uri("ms-appx:///Assets/bj.jpg", UriKind.Absolute));
+                    image.Tag = "1";
+                }
+                check++;
             }
-
-
 
         }
 
-        private void JudgeGameOver()
+        private bool JudgeGameOver()
         {
             if (worf.Count == 0)
+            {
                 GameSession.Text = "好人胜利";
+                explaination.Text = "好人真棒";
+                return true;
+            }
             else if (god.Count == 0 || civilian.Count == 0)
+            {
                 GameSession.Text = "狼人胜利";
+                explaination.Text = "狼人真厉害";
+                return true;
+            }
+            return false;
         }
 
     }
