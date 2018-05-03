@@ -1,0 +1,85 @@
+﻿<Page
+    x:Class="Wereworf.gamePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Wereworf"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0" Orientation="Vertical">
+                <Button Name="player1" Tag="1" Click="player_Click"  Height="60" >
+                    <Image  x:Name="image1" Tag="1" Tapped="Image_Tapped"  Source="./Assets/bj.jpg"></Image>
+                </Button>
+                <TextBlock FontSize="28">玩家1</TextBlock>
+
+                <Button Name="player2" Tag="2" Click="player_Click" Height="60" >
+                    <Image  x:Name="image2" Tag="1" Tapped="Image_Tapped" Source="./Assets/bj.jpg"></Image>
+                </Button>
+                <TextBlock FontSize="28">玩家2</TextBlock>
+
+                <Button Name="player3" Tag="3" Click="player_Click" Height="60" >
+                    <Image x:Name="image3" Tag="1" Tapped="Image_Tapped"  Source="./Assets/bj.jpg"></Image>
+                </Button>
+                <TextBlock FontSize="28">玩家3</TextBlock>
+
+                <Button Name="player4" Tag="4" Click="player_Click" Height="60" >
+                    <Image x:Name="image4" Tag="1" Tapped="Image_Tapped"  Source="./Assets/bj.jpg"></Image>
+                </Button>
+                <TextBlock FontSize="28">玩家4</TextBlock>
+
+                <Button Name="player5" Tag="5" Click="player_Click" Height="60" >
+                    <Image x:Name="image5" Tag="1" Tapped="Image_Tapped"  Source="./Assets/bj.jpg"></Image>
+                </Button>
+                <TextBlock FontSize="28">玩家5</TextBlock>
+            </StackPanel>
+            <StackPanel Grid.Column="3"  Orientation="Vertical">
+                <Button Name="player6" Tag="6" Click="player_Click" Height="60" >
+                    <Image x:Name="image6" Tag="1" Tapped="Image_Tapped"   Source="./Assets/bj.jpg"></Image>
+                </Button>
+                <TextBlock FontSize="28">玩家6</TextBlock>
+
+                <Button Name="player7" Tag="7" Click="player_Click" Height="60" >
+                    <Image x:Name="image7" Tag="1" Tapped="Image_Tapped"  Source="./Assets/bj.jpg"></Image>
+                </Button>
+                <TextBlock FontSize="28">玩家7</TextBlock>
+
+                <Button Name="player8" Tag="8" Click="player_Click" Height="60" >
+                    <Image x:Name="iamge8" Tag="1" Tapped="Image_Tapped"  Source="./Assets/bj.jpg"></Image>
+                </Button>
+                <TextBlock FontSize="28">玩家8</TextBlock>
+
+                <Button Name="player9" Tag="9" Click="player_Click" Height="60" >
+                    <Image x:Name="iamge9" Tag="1" Tapped="Image_Tapped"   Source="./Assets/bj.jpg"></Image>
+                </Button>
+                <TextBlock FontSize="28">玩家9</TextBlock>
+            </StackPanel >
+            <Grid  x:Name="center" Grid.Column="1"  >
+                <StackPanel>
+                    <TextBlock x:Name="GameSession" FontSize="50" HorizontalAlignment="Center"></TextBlock>
+                    <TextBlock x:Name="explaination" FontSize="50" HorizontalAlignment="Center"></TextBlock>
+                </StackPanel>
+
+
+                <TextBlock x:Name="clocktext" Foreground="Black" FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Center" >
+                </TextBlock>
+                <MediaElement></MediaElement>
+                <StackPanel VerticalAlignment="Bottom" HorizontalAlignment="Center" Orientation="Horizontal">
+                    <Button Name="StartButton" FontSize="28"   Click="StartButton_Click">开始</Button>
+                    <Button Margin="20" Name="EndButton" FontSize="28"  Click="EndButton_Click" >结束</Button>
+
+                </StackPanel>
+
+            </Grid>
+
+
+        </Grid>
+    </Grid>
+</Page>
