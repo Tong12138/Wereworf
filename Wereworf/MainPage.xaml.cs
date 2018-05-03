@@ -37,7 +37,7 @@ namespace Wereworf
         {
             if (args.IsSettingsSelected)
             {
-                ContentFrame.Text = "SettingsPage";
+                MyFrame.Navigate(typeof(SettingsPage));
             }
             else
             {
@@ -46,16 +46,17 @@ namespace Wereworf
 
                 switch (item.Tag)
                 {
-                    case "home":
-                        ContentFrame.Text = "logingPage";
+                    case "loging":
+                        MyFrame.Navigate(typeof(logingPage));
                         break;
 
-                   // case "apps":
-                      //  ContentFrame.Text = "AppsPage";
-                      //  break;
+                    case "register":
+                        MyFrame.Navigate(typeof(regPage));
+                  
+                        break;
 
                     case "games":
-                        ContentFrame.Text = "gamePage";
+                        MyFrame.Navigate(typeof(gamePage));
                         break;
 
                   //  case "music":
@@ -64,6 +65,8 @@ namespace Wereworf
                 }
             }
         }
+
+       
     }
     
 }
