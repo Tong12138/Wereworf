@@ -1,4 +1,4 @@
-﻿<Page
+﻿<Page Name="mainPage"
     x:Class="Wereworf.MainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
