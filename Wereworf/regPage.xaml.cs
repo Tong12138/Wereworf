@@ -40,18 +40,21 @@ namespace Wereworf
                 {
                     //在组件上提示邮箱已经被注册
                     all.Text = "邮箱已经被注册";
-                    return;
                 }
-                User n = new User
+                else
                 {
-                    UserName = u.Text,
-                    Password = pa.Text,
-                    Email = em.Text,
-                    CimbatGains = "0"
-                };
-                db.User.Add(n);
-                await db.SaveChangesAsync();
-                all.Text = "注册成功";
+                    User n = new User
+                    {
+                        UserName = u.Text,
+                        Password = pa.Text,
+                        Email = em.Text,
+                        CimbatGains = "0"
+                    };
+                    db.User.Add(n);
+                    await db.SaveChangesAsync();
+                    all.Text = "注册成功";
+                    MyFrame.Navigate(typeof(logingPage));
+                }
             }
         }
     }
