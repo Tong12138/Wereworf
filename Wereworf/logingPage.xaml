@@ -12,8 +12,9 @@
         <TextBlock HorizontalAlignment="Left" Margin="180,281,0,0" Text="User" TextWrapping="Wrap" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="180,365,0,0" Text="Password" TextWrapping="Wrap" VerticalAlignment="Top"/>
         <TextBox HorizontalAlignment="Left" Margin="397,281,0,0" Name="u" VerticalAlignment="Top" Height="20" Width="396"/>
-        <TextBox HorizontalAlignment="Left" Margin="397,365,0,0" Name="pa" VerticalAlignment="Top" Height="20" Width="396"/>
+        <PasswordBox Name="pa" HorizontalAlignment="Left" Margin="397,353,0,0" VerticalAlignment="Top" Height="32" Width="396"/>
         <TextBlock Name="all" FontSize="48" Height="800" HorizontalAlignment="Left" Margin="144,111,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
         <Frame x:Name="MyFrame"></Frame>
+       
     </Grid>
 </Page>

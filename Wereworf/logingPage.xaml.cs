@@ -34,7 +34,7 @@ namespace Wereworf
             using (var db = new Model())
             {
                 string us = u.Text;
-                string paa = pa.Text;
+                string paa = pa.Password;
                 var theuser = db.User.Where(b => (b.Password == paa & b.UserName == us));
                 if (theuser.Count() == 0)
                 {

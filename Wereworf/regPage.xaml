@@ -13,9 +13,10 @@
         <TextBlock HorizontalAlignment="Left" Margin="139,319,0,0" Text="Password" TextWrapping="Wrap" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="139,430,0,0" Text="Email" TextWrapping="Wrap" VerticalAlignment="Top"/>
         <TextBox HorizontalAlignment="Left" Margin="356,235,0,0" Name="u" VerticalAlignment="Top" Height="20" Width="396"/>
-        <TextBox HorizontalAlignment="Left" Margin="356,319,0,0" Name="pa" VerticalAlignment="Top" Height="20" Width="396"/>
         <TextBox HorizontalAlignment="Left" Margin="356,430,0,0" Name="em" VerticalAlignment="Top" Width="396"/>
         <TextBlock Name="all" FontSize="48" Height="800" HorizontalAlignment="Left" Margin="144,111,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <PasswordBox Name="pa" HorizontalAlignment="Left" Margin="356,319,0,0" VerticalAlignment="Top" Height="40" Width="396"/>
         <Frame x:Name="MyFrame"></Frame>
+        
     </Grid>
 </Page>

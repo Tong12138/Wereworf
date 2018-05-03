@@ -33,7 +33,7 @@ namespace Wereworf
             using (var db = new Model())
             {
                 string us = u.Text;
-                string paa = pa.Text;
+                string paa = pa.Password;
                 string ema = em.Text;
                 var student = db.User.Where(b => b.Email == ema);
                 if (student.Count() > 0)
@@ -46,7 +46,7 @@ namespace Wereworf
                     User n = new User
                     {
                         UserName = u.Text,
-                        Password = pa.Text,
+                        Password = pa.Password,
                         Email = em.Text,
                         CimbatGains = "0"
                     };
