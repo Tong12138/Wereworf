@@ -14,6 +14,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Microsoft.EntityFrameworkCore;
 using EFCore1.Library;
+using System.Threading.Tasks;
 
 
 // https://go.microsoft.com/fwlink/?LinkId=234238 上介绍了“空白页”项模板
@@ -49,6 +50,7 @@ namespace Wereworf
                     //theuser.ElementAt(0).CimbatGains  战绩
                     //否则已经注册，到游戏页面
                     all.Text = "登陆成功";
+                    await Task.Delay(TimeSpan.FromSeconds(2));
                     MyFrame.Navigate(typeof(gamePage));
                 }
             }
