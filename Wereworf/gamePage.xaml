@@ -52,12 +52,12 @@
                 <TextBlock FontSize="28">玩家7</TextBlock>
 
                 <Button Name="player8" Tag="8" Click="player_Click" Height="60" >
-                    <Image x:Name="iamge8" Tag="1" Tapped="Image_Tapped"  Source="./Assets/bj.jpg"></Image>
+                    <Image x:Name="image8" Tag="1" Tapped="Image_Tapped"  Source="./Assets/bj.jpg"></Image>
                 </Button>
                 <TextBlock FontSize="28">玩家8</TextBlock>
 
                 <Button Name="player9" Tag="9" Click="player_Click" Height="60" >
-                    <Image x:Name="iamge9" Tag="1" Tapped="Image_Tapped"   Source="./Assets/bj.jpg"></Image>
+                    <Image x:Name="image9" Tag="1" Tapped="Image_Tapped"   Source="./Assets/bj.jpg"></Image>
                 </Button>
                 <TextBlock FontSize="28">玩家9</TextBlock>
             </StackPanel >
