@@ -8,7 +8,8 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Button Name="checkIn" Content="registe" HorizontalAlignment="Left" Margin="690,626,0,0" VerticalAlignment="Top" Click="checkIn_Click"/>
+        <Button Name="checkIn" Content="Sign up" HorizontalAlignment="Left" Margin="690,626,0,0" VerticalAlignment="Top" Click="checkIn_Click"/>
+        <HyperlinkButton Content="Back to Log in" HorizontalAlignment="Left" Margin="390,626,0,0" VerticalAlignment="Top" Click="HyperlinkButton_Click"/>
         <TextBlock HorizontalAlignment="Left" Margin="139,235,0,0" Text="User" TextWrapping="Wrap" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="139,319,0,0" Text="Password" TextWrapping="Wrap" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="139,430,0,0" Text="Email" TextWrapping="Wrap" VerticalAlignment="Top"/>

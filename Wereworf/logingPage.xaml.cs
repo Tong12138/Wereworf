@@ -55,5 +55,14 @@ namespace Wereworf
                 }
             }
         }
+
+        private void SignUp_Click(object sender, RoutedEventArgs e)
+        {
+            MyFrame.Navigate(typeof(regPage));
+        }
+        private void MyFrame_Navigated(object sender, NavigationEventArgs e)
+        {
+
+        }
     }
 }

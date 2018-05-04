@@ -50,18 +50,11 @@ namespace Wereworf
                         MyFrame.Navigate(typeof(logingPage));
                         break;
 
-                    case "register":
-                        MyFrame.Navigate(typeof(regPage));
-                  
-                        break;
-
                     case "games":
                         MyFrame.Navigate(typeof(gamePage));
                         break;
 
-                  //  case "music":
-                     //   ContentFrame.Text = "MusicPage";
-                     //   break;
+                 
                 }
             }
         }

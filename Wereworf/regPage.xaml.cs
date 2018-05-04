@@ -59,5 +59,10 @@ namespace Wereworf
                 }
             }
         }
+
+        private void HyperlinkButton_Click(object sender, RoutedEventArgs e)
+        {
+            MyFrame.Navigate(typeof(logingPage));
+        }
     }
 }

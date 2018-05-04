@@ -19,9 +19,9 @@
                     <FontIcon Glyph="&#xE10F;" />
                 </NavigationViewItem.Icon>
             </NavigationViewItem>
-            <NavigationViewItem Icon="AllApps" Content="注册" Tag="register" />
+       
             <NavigationViewItem Icon="Video" Content="Games" Tag="games" />
-            <NavigationViewItem Icon="Audio" Content="Music" Tag="music" />
+          
         </NavigationView.MenuItems>
 
         <NavigationView.AutoSuggestBox>
