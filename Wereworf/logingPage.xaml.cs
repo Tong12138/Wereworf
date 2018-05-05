@@ -55,7 +55,7 @@ namespace Wereworf
                     //theuser.ElementAt(0).CimbatGains  战绩
                     //否则已经注册，到游戏页面
                     all.Text = "登陆成功";
-                    await Task.Delay(TimeSpan.FromSeconds(2));
+                    await Task.Delay(TimeSpan.FromSeconds(1));
                     MyFrame.Navigate(typeof(gamePage));
                 }
             }

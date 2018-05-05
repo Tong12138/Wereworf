@@ -8,13 +8,10 @@
     mc:Ignorable="d">
 
     <NavigationView x:Name="NavView"
-                    SelectionChanged="NavView_SelectionChanged"
-                    
+                    SelectionChanged="NavView_SelectionChanged"          
                     >
 
         <NavigationView.MenuItems>
-            <NavigationViewItemHeader Content="Main pages" />
-            <NavigationViewItemSeparator />
             <NavigationViewItem Content="Log in" Tag="loging" >
                 <NavigationViewItem.Icon>
                     <FontIcon Glyph="&#xE10F;" />
@@ -25,9 +22,6 @@
           
         </NavigationView.MenuItems>
 
-        <NavigationView.AutoSuggestBox>
-            <AutoSuggestBox QueryIcon="Find" />
-        </NavigationView.AutoSuggestBox>
 
         <NavigationView.Header>
             什么狼人杀
