@@ -15,6 +15,7 @@ using Windows.UI.Xaml.Navigation;
 using EFCore1.Library;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
+using Windows.UI.Xaml.Media.Imaging;
 
 // https://go.microsoft.com/fwlink/?LinkId=234238 上介绍了“空白页”项模板
 
@@ -27,7 +28,12 @@ namespace Wereworf
     {
         public regPage()
         {
+            ImageBrush imageBrush = new ImageBrush();
+            imageBrush.ImageSource = new BitmapImage(new Uri("ms-appx:///Assets/SignupBack.jpg", UriKind.Absolute));
+
             this.InitializeComponent();
+            SignUpGrid.Background = imageBrush;
+     
         }
         private async void checkIn_Click(object sender, RoutedEventArgs e)
         {

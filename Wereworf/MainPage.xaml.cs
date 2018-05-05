@@ -32,6 +32,7 @@ namespace Wereworf
 
             this.InitializeComponent();
             firstpage = this;
+            MyFrame.Navigate(typeof(logingPage));
         }
         private void NavView_SelectionChanged(
             Windows.UI.Xaml.Controls.NavigationView sender,

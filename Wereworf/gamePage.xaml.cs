@@ -30,12 +30,12 @@ namespace Wereworf
         {
            this.InitializeComponent();
             ImageBrush imageBrush = new ImageBrush();
-            imageBrush.ImageSource = new BitmapImage(new Uri("ms-appx:///Assets/aaaa.jpg", UriKind.Absolute));
+            imageBrush.ImageSource = new BitmapImage(new Uri("ms-appx:///Assets/gameBack.jpg", UriKind.Absolute));
             timer.Tick += handler;
             OnMyTagChanged += new MyTagChanged(AfterMyValueChanged);
-            //center.Background = imageBrush;
+            GameGrid.Background = imageBrush;
         }
-         string[] identity ;
+        string[] identity ;
         List<string> worf;
         List<string> god;
         List<string> civilian;
@@ -423,7 +423,8 @@ namespace Wereworf
                 using (var db = new Model())
                 {
                     var t = db.User.Where(b => (b.UserName == MainPage.firstpage.UserName.Text)).ToArray();
-                    t.ElementAt(0).CimbatGains +=" "+ GameSession.Text;
+                    string texttemp = GameSession.Text + "\n" + t.ElementAt(0).CimbatGains;
+                    t.ElementAt(0).CimbatGains = texttemp;
                     db.SaveChanges();
                 }
                 start = 0;
@@ -437,7 +438,8 @@ namespace Wereworf
                 using (var db = new Model())
                 {
                     var t = db.User.Where(b => (b.UserName == MainPage.firstpage.UserName.Text)).ToArray();
-                    t.ElementAt(0).CimbatGains +=" "+ GameSession.Text;
+                    string texttemp = GameSession.Text + "\n" + t.ElementAt(0).CimbatGains;
+                    t.ElementAt(0).CimbatGains = texttemp;
                     db.SaveChanges();
                 }
                     start = 0;

@@ -15,6 +15,7 @@ using Windows.UI.Xaml.Navigation;
 using Microsoft.EntityFrameworkCore;
 using EFCore1.Library;
 using System.Threading.Tasks;
+using Windows.UI.Xaml.Media.Imaging;
 
 
 // https://go.microsoft.com/fwlink/?LinkId=234238 上介绍了“空白页”项模板
@@ -28,8 +29,12 @@ namespace Wereworf
     {
         public logingPage()
         {
+            ImageBrush imageBrush = new ImageBrush();
+            imageBrush.ImageSource = new BitmapImage(new Uri("ms-appx:///Assets/gameBack.jpg", UriKind.Absolute));
+         
             this.InitializeComponent();
-            
+            LoginGrid.Background = imageBrush;
+
         }
         private async void login_Click(object sender, RoutedEventArgs e)
         {

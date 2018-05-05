@@ -10,7 +10,7 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Grid Name="ColorGrid">
+        <Grid Name="LoginGrid">
 
             <VisualStateManager.VisualStateGroups>
                 <VisualStateGroup>
@@ -36,13 +36,13 @@
                     </VisualState>
                 </VisualStateGroup>
             </VisualStateManager.VisualStateGroups>
-            <Button Name="login" Content="Log in" HorizontalAlignment="Left" Margin="710,553,0,0" VerticalAlignment="Top" Click="login_Click"/>
-            <Button Name="SignUp" Content="Sign up" HorizontalAlignment="Left" Margin="410,553,0,0" VerticalAlignment="Top" Click="SignUp_Click"/>
-            <TextBlock Name="UserNameText" HorizontalAlignment="Left" Margin="180,281,0,0" Text="User" TextWrapping="Wrap" VerticalAlignment="Top"/>
-            <TextBlock HorizontalAlignment="Left" Margin="180,365,0,0" Text="Password" TextWrapping="Wrap" VerticalAlignment="Top"/>
+            <Button Name="login" Foreground="White" Content="Log in" HorizontalAlignment="Left" Margin="710,553,0,0" VerticalAlignment="Top" Click="login_Click"/>
+            <Button Name="SignUp" Foreground="White" Content="Sign up" HorizontalAlignment="Left" Margin="410,553,0,0" VerticalAlignment="Top" Click="SignUp_Click"/>
+            <TextBlock Name="UserNameText" Foreground="White" HorizontalAlignment="Left" Margin="180,281,0,0" Text="User" TextWrapping="Wrap" VerticalAlignment="Top"/>
+            <TextBlock HorizontalAlignment="Left" Foreground="White" Margin="180,365,0,0" Text="Password" TextWrapping="Wrap" VerticalAlignment="Top"/>
             <TextBox  HorizontalAlignment="Left" Margin="397,281,0,0" Name="u"  VerticalAlignment="Top" Height="20" Width="396"/>
             <PasswordBox Name="pa" HorizontalAlignment="Left" Margin="397,353,0,0" VerticalAlignment="Top" Height="32" Width="396"/>
-            <TextBlock Name="all" FontSize="48" Height="800" HorizontalAlignment="Left" Margin="144,111,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+            <TextBlock Name="all" Foreground="White" FontSize="48" Height="800" HorizontalAlignment="Left" Margin="144,111,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
             <Frame x:Name="MyFrame" Navigated="MyFrame_Navigated"></Frame>
 
         </Grid>
