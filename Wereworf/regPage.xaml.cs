@@ -36,6 +36,11 @@ namespace Wereworf
                 string us = u.Text;
                 string paa = pa.Password;
                 string ema = em.Text;
+                if(us.Length == 0 | paa.Length == 0 | ema.Length == 0)
+                {
+                    all.Text = "请输入";
+                    return;
+                }
                 var student = db.User.Where(b => b.Email == ema);
                 if (student.Count() > 0)
                 {
