@@ -30,7 +30,7 @@ namespace Wereworf
         {
            this.InitializeComponent();
             ImageBrush imageBrush = new ImageBrush();
-            imageBrush.ImageSource = new BitmapImage(new Uri("ms-appx:///Assets/gameBack.jpg", UriKind.Absolute));
+            imageBrush.ImageSource = new BitmapImage(new Uri("ms-appx:///Assets/timg.jpg", UriKind.Absolute));
             timer.Tick += handler;
             OnMyTagChanged += new MyTagChanged(AfterMyValueChanged);
             GameGrid.Background = imageBrush;
