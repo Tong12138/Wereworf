@@ -1,5 +1,6 @@
 ﻿<Page
     x:Class="Wereworf.SettingsPage"
+    x:FieldModifier="public"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Wereworf"
@@ -10,9 +11,9 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <RelativePanel>
             <PersonPicture Name="UserProfile" ProfilePicture="/Assets/kuku.png" Margin="20,0,0,0"/>
-            <TextBlock Name="SettingPageUserName" Text="游客" FontSize="48" RelativePanel.RightOf="UserProfile"
+            <TextBlock x:FieldModifier="public" Name="SettingPageUserName" Text="游客" FontSize="48" RelativePanel.RightOf="UserProfile"
                        Margin="20,0,0,0"></TextBlock>
-            <TextBlock Name="SettingPageUserMail" Text="123456789@qq.com"
+            <TextBlock x:FieldModifier="public" Name="SettingPageUserMail" Text="123456789@qq.com"
                        RelativePanel.Below="SettingPageUserName" RelativePanel.RightOf="UserProfile"
                        FontSize="24" Margin="20,0,0,0"></TextBlock>
             <Button Background="#FF42A214" Foreground="White"
@@ -36,11 +37,11 @@
                 </StackPanel>
 
             </Button>
-            <RichTextBlock Name="HistoryText" RelativePanel.Below="HistoryButton" 
+            <TextBlock Name="HistoryText" RelativePanel.Below="HistoryButton" 
                            Margin="20,20,0,0"
-                           FontFamily="Segoe Print">
-                <Paragraph>This should be a history record.</Paragraph>
-            </RichTextBlock>
+                           FontFamily="Segoe Print"
+               Text="This should be a history record.">
+            </TextBlock>
         </RelativePanel>
        
     </Grid>

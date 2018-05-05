@@ -29,6 +29,7 @@ namespace Wereworf
         public logingPage()
         {
             this.InitializeComponent();
+            
         }
         private async void login_Click(object sender, RoutedEventArgs e)
         {
@@ -41,7 +42,9 @@ namespace Wereworf
                     all.Text = "请输入";
                     return;
                 }
-                var theuser = db.User.Where(b => (b.Password == paa & b.UserName == us));
+
+                var theuser = db.User.Where(b => (b.Password == paa & b.UserName == us)).ToArray();
+
                 if (theuser.Count() == 0)
                 {
                     //提示用户未注册或输入错误，请注册后登陆
@@ -54,6 +57,8 @@ namespace Wereworf
                     //theuser.ElementAt(0).Email    邮箱
                     //theuser.ElementAt(0).CimbatGains  战绩
                     //否则已经注册，到游戏页面
+                    MainPage.firstpage.UserName.Text = theuser.ElementAt(0).UserName;
+
                     all.Text = "登陆成功";
                     await Task.Delay(TimeSpan.FromSeconds(1));
                     MyFrame.Navigate(typeof(gamePage));
