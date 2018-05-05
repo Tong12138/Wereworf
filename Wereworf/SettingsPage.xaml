@@ -8,6 +8,35 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <TextBlock>This is settingsPage.</TextBlock>
+        <RelativePanel>
+            <PersonPicture Name="UserProfile" ProfilePicture="/Assets/kuku.png" Margin="20,0,0,0"/>
+            <TextBlock Name="SettingPageUserName" Text="游客" FontSize="48" RelativePanel.RightOf="UserProfile"
+                       Margin="20,0,0,0"></TextBlock>
+            <TextBlock Name="SettingPageUserMail" Text="123456789@qq.com"
+                       RelativePanel.Below="SettingPageUserName" RelativePanel.RightOf="UserProfile"
+                       FontSize="24" Margin="20,0,0,0"></TextBlock>
+            <Button Background="#FF42A214" Foreground="White"
+                    FontFamily="Segoe Print" FontSize="22"
+                   
+                    RelativePanel.Below="UserProfile"
+                    Margin="20,20,0,0">
+
+                <Button.Resources>
+                    <SolidColorBrush x:Key="ButtonBackgroundPointerOver">#FF42A214</SolidColorBrush>
+                    <SolidColorBrush x:Key="ButtonBackgroundPressed">#FF359308</SolidColorBrush>
+                    <SolidColorBrush x:Key="ButtonForegroundPointerOver">white</SolidColorBrush>
+                    <SolidColorBrush x:Key="ButtonForegroundPressed">white</SolidColorBrush>
+                    <SolidColorBrush x:Key="ButtonBorderBrushPointerOver">#FF267600</SolidColorBrush>
+                    <SolidColorBrush x:Key="ButtonBorderBrushPressed">#FF267600</SolidColorBrush>
+                </Button.Resources>
+
+                <StackPanel Orientation="Horizontal">
+                    <SymbolIcon Symbol="Accept" Margin="0,0,10,0" />
+                    <TextBlock Text="History" />
+                </StackPanel>
+
+            </Button>
+        </RelativePanel>
+       
     </Grid>
 </Page>
