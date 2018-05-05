@@ -18,7 +18,7 @@
                        FontSize="24" Margin="20,0,0,0"></TextBlock>
             <Button Background="#FF42A214" Foreground="White"
                     FontFamily="Segoe Print" FontSize="22"
-                   
+                    Name="HistoryButton"
                     RelativePanel.Below="UserProfile"
                     Margin="20,20,0,0">
 
@@ -37,6 +37,11 @@
                 </StackPanel>
 
             </Button>
+            <RichTextBlock Name="HistoryText" RelativePanel.Below="HistoryButton" 
+                           Margin="20,20,0,0"
+                           FontFamily="Segoe Print">
+                <Paragraph>This should be a history record.</Paragraph>
+            </RichTextBlock>
         </RelativePanel>
        
     </Grid>
