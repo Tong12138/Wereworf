@@ -233,6 +233,7 @@ namespace Wereworf
             player7.IsEnabled = true;
             player8.IsEnabled = true;
             player9.IsEnabled = true;
+            player10.IsEnabled = true;
             image1.Source = new BitmapImage(new Uri("ms-appx:///Assets/bj.jpg", UriKind.Absolute)); image1.Tag = "1"; image1.IsTapEnabled = true;
             image2.Source = new BitmapImage(new Uri("ms-appx:///Assets/bj.jpg", UriKind.Absolute)); image2.Tag = "1"; image2.IsTapEnabled = true;
             image3.Source = new BitmapImage(new Uri("ms-appx:///Assets/bj.jpg", UriKind.Absolute)); image3.Tag = "1"; image3.IsTapEnabled = true;
@@ -242,6 +243,7 @@ namespace Wereworf
             image7.Source = new BitmapImage(new Uri("ms-appx:///Assets/bj.jpg", UriKind.Absolute)); image7.Tag = "1"; image7.IsTapEnabled = true;
             image8.Source = new BitmapImage(new Uri("ms-appx:///Assets/bj.jpg", UriKind.Absolute)); image8.Tag = "1"; image8.IsTapEnabled = true;
             image9.Source = new BitmapImage(new Uri("ms-appx:///Assets/bj.jpg", UriKind.Absolute)); image9.Tag = "1"; image9.IsTapEnabled = true;
+            image10.Source = new BitmapImage(new Uri("ms-appx:///Assets/bj.jpg", UriKind.Absolute)); image10.Tag = "1"; image10.IsTapEnabled = true;
             //变量初始化
             antidote = 1;
             poison = 1;
@@ -256,15 +258,15 @@ namespace Wereworf
 
 
             //随机分配身份
-            string[] identity1 = { "ms-appx:///Assets/lr.jpg", "ms-appx:///Assets/lr.jpg", "ms-appx:///Assets/lr.jpg", "ms-appx:///Assets/nw.jpg", "ms-appx:///Assets/yyj.jpg", "ms-appx:///Assets/qiang.jpg", "ms-appx:///Assets/pc.jpg", "ms-appx:///Assets/pc.jpg", "ms-appx:///Assets/pc.jpg" };
-            identity = new string[9];
+            string[] identity1 = { "ms-appx:///Assets/lr.jpg", "ms-appx:///Assets/lr.jpg", "ms-appx:///Assets/lr.jpg", "ms-appx:///Assets/nw.jpg", "ms-appx:///Assets/yyj.jpg", "ms-appx:///Assets/qiang.jpg", "ms-appx:///Assets/pc.jpg", "ms-appx:///Assets/pc.jpg", "ms-appx:///Assets/pc.jpg" , "ms-appx:///Assets/pc.jpg" };
+            identity = new string[10];
             //initialize
             Hashtable hashtable = new Hashtable();
             Random rm = new Random();
-            int RmNum = 9;
+            int RmNum = 10;
             for (int j = 0; hashtable.Count < RmNum;)
             {
-                int nValue = rm.Next(0, 9);
+                int nValue = rm.Next(0, 10);
                 if (!hashtable.ContainsValue(nValue))
                 {
                     hashtable.Add(nValue, nValue);
