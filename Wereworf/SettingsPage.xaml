@@ -37,11 +37,11 @@
                 </StackPanel>
 
             </Button>
-            <RichTextBlock Name="HistoryText" RelativePanel.Below="HistoryButton" 
+            <TextBlock Name="HistoryText" RelativePanel.Below="HistoryButton" 
                            Margin="20,20,0,0"
-                           FontFamily="Segoe Print">
-                <Paragraph>This should be a history record.</Paragraph>
-            </RichTextBlock>
+                           FontFamily="Segoe Print"
+               Text="This should be a history record.">
+            </TextBlock>
         </RelativePanel>
        
     </Grid>

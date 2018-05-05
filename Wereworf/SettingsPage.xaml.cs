@@ -36,6 +36,7 @@ namespace Wereworf
                 {
                     SettingPageUserName.Text = theuser.ElementAt(0).UserName;
                     SettingPageUserMail.Text = theuser.ElementAt(0).Email;
+                    HistoryText.Text = theuser.ElementAt(0).CimbatGains;
                 }
 
 

@@ -15,6 +15,8 @@ using Windows.UI.Xaml.Navigation;
 using System.Collections;
 using Windows.UI.Core;
 using Windows.UI.Xaml.Media.Imaging;
+using EFCore1.Library;
+using Microsoft.EntityFrameworkCore;
 // https://go.microsoft.com/fwlink/?LinkId=234238 上介绍了“空白页”项模板
 
 namespace Wereworf
@@ -418,6 +420,12 @@ namespace Wereworf
             {
                 GameSession.Text = "好人胜利";
                 explaination.Text = "好人真棒";
+                using (var db = new Model())
+                {
+                    var t = db.User.Where(b => (b.UserName == MainPage.firstpage.UserName.Text)).ToArray();
+                    t.ElementAt(0).CimbatGains +=" "+ GameSession.Text;
+                    db.SaveChanges();
+                }
                 start = 0;
                 EndButton.IsEnabled = false;
                 return true;
@@ -426,7 +434,13 @@ namespace Wereworf
             {  
                 GameSession.Text = "狼人胜利";
                 explaination.Text = "狼人真厉害";
-                start = 0;
+                using (var db = new Model())
+                {
+                    var t = db.User.Where(b => (b.UserName == MainPage.firstpage.UserName.Text)).ToArray();
+                    t.ElementAt(0).CimbatGains +=" "+ GameSession.Text;
+                    db.SaveChanges();
+                }
+                    start = 0;
                 EndButton.IsEnabled = false;
                 return true;
             }
