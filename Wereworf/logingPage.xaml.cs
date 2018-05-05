@@ -36,6 +36,11 @@ namespace Wereworf
             {
                 string us = u.Text;
                 string paa = pa.Password;
+                if (us.Length == 0 | paa.Length == 0)
+                {
+                    all.Text = "请输入";
+                    return;
+                }
                 var theuser = db.User.Where(b => (b.Password == paa & b.UserName == us));
                 if (theuser.Count() == 0)
                 {
