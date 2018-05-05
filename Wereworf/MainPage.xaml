@@ -1,4 +1,5 @@
 ﻿<Page Name="mainPage"
+      x:FieldModifier="public"
     x:Class="Wereworf.MainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -34,7 +35,7 @@
         </NavigationView.Header>
 
         <NavigationView.PaneFooter>
-            <TextBlock Name="UserName" Text="游客" FontSize="16" Margin="20,0,0,0"></TextBlock>
+            <TextBlock x:FieldModifier="public" Name="UserName" Text="游客" FontSize="16" Margin="20,0,0,0"></TextBlock>
         </NavigationView.PaneFooter>
 
         <Frame x:Name="MyFrame"></Frame>

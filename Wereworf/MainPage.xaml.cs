@@ -25,11 +25,13 @@ namespace Wereworf
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        public static MainPage firstpage;
 
         public MainPage()
         {
 
             this.InitializeComponent();
+            firstpage = this;
         }
         private void NavView_SelectionChanged(
             Windows.UI.Xaml.Controls.NavigationView sender,
