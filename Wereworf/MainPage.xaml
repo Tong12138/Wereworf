@@ -9,6 +9,7 @@
 
     <NavigationView x:Name="NavView"
                     SelectionChanged="NavView_SelectionChanged"
+                    
                     >
 
         <NavigationView.MenuItems>
@@ -33,8 +34,7 @@
         </NavigationView.Header>
 
         <NavigationView.PaneFooter>
-            <HyperlinkButton Content="More info"
-                             Margin="12,0" />
+            <TextBlock Name="UserName" Text="游客" FontSize="16" Margin="20,0,0,0"></TextBlock>
         </NavigationView.PaneFooter>
 
         <Frame x:Name="MyFrame"></Frame>
